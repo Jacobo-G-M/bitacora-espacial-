@@ -1,0 +1,104 @@
+@layer base {
+  .contenedor {
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: var(--espacio-3);
+  }
+
+  .cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--espacio-3);
+    padding-block: var(--espacio-4);
+  }
+
+  .cabecera nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-3);
+  }
+
+  .grid-noticias {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+    gap: var(--espacio-4);
+    padding-block: var(--espacio-5);
+  }
+}
+
+@layer componentes {
+  .cabecera {
+    border-bottom: 1px solid color-mix(in srgb, var(--color-texto-suave) 20%, transparent);
+
+    & > a {
+      color: var(--color-texto);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    & nav a {
+      color: var(--color-acento);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+
+  .subtitulo {
+    color: var(--color-texto-suave);
+    margin-top: 0;
+    margin-bottom: var(--espacio-4);
+  }
+
+  .buscador {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--espacio-2) var(--espacio-3);
+    max-width: 40rem;
+    margin-block: var(--espacio-4);
+
+    & label {
+      grid-column: 1 / -1;
+      font-weight: 700;
+    }
+
+    & input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font: inherit;
+      color: var(--color-texto);
+      background: var(--color-superficie);
+      border: 1px solid color-mix(in srgb, var(--color-texto-suave) 35%, transparent);
+      border-radius: 0.5rem;
+
+      &::placeholder {
+        color: var(--color-texto-suave);
+      }
+    }
+
+    & button {
+      padding: 0.75rem 1.5rem;
+      font: inherit;
+      font-weight: 700;
+      color: var(--color-fondo);
+      background: var(--color-acento);
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: filter 150ms ease;
+
+      &:hover {
+        filter: brightness(1.08);
+      }
+    }
+  }
+
+  footer.contenedor {
+    margin-top: var(--espacio-5);
+    padding-block: var(--espacio-4);
+    border-top: 1px solid color-mix(in srgb, var(--color-texto-suave) 20%, transparent);
+    color: var(--color-texto-suave);
+    font-size: var(--texto-pequeno);
+  }
+}
